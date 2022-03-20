@@ -5,7 +5,7 @@ pipeline {
         choice(name: 'BRANCH_TO_BUILD', choices: ['master', 'dev', 'prod'], description: 'These are all branches')
     }
         triggers {
-        cron('*/45 * * * *')
+        cron('*/55 * * * *')
         pollSCM('*/2 * * * *')
     }
     stages {
