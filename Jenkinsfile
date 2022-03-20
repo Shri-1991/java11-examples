@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'jdk11-mvn3.8.5' }
     parameters {
-        { string(name: 'MAVEN_GOAL', defaultValue: 'clean package', description: 'this is maven goals') }
+        { string(name: 'MAVEN_GOAL', defaultValue: 'package', description: 'this is maven goals') }
         { choice(name: 'BRANCH_TO_BUILD', choices: ['master', 'dev', 'prod'], description: 'These are all branches') }
     }
         triggers {
