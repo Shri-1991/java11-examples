@@ -1,7 +1,6 @@
 pipeline {
     agent { label 'jdk11-mvn3.8.5' }
     triggers { cron('*/30 * * * *')}
-    triggers { pollscm('*/5 * * * *')}
     stages {
         stage('scm') {
             steps {
