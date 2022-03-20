@@ -1,5 +1,6 @@
 pipeline {
     agent { label 'jdk11-mvn3.8.5' }
+    parameters { string(name: 'BRANCH_BUILD', defaultValue: 'master', description: 'This Para') }
     triggers {
         cron('*/45 * * * *')
         pollSCM('*/2 * * * *')
@@ -7,7 +8,7 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-                git 'https://github.com/GitPracticeRepo/java11-examples.git'
+                git url 'https://github.com/GitPracticeRepo/java11-examples.git', BRANCH_BUILD {$para.BRANCH_BUILD}
             }
         }
         stage('build') {
