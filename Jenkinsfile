@@ -4,8 +4,8 @@ pipeline {
         string(name: 'MAVEN_GOAL', defaultValue: 'package', description: 'this is maven goals')
         choice(name: 'BRANCH_TO_BUILD', choices: ['master', 'dev', 'prod'], description: 'These are all branches')
     }
-        triggers {
-        cron('*/55 * * * *')
+    triggers {
+        cron('*/45 * * * *')
         pollSCM('*/2 * * * *')
     }
     stages {
